@@ -2502,14 +2502,15 @@ git push -u origin main`}
 
                 <div className="p-4 bg-slate-950 border border-slate-800 rounded-lg">
                   <h3 className="text-sm font-semibold text-white mb-1">
-                    03. Connect GitHub to Cloudflare Workers & Set <code className="text-sky-300">BOT_TOKEN</code>
+                    03. Connect GitHub to Cloudflare Workers (Pure Worker Script — No Static Assets)
                   </h3>
                   <p className="text-slate-400 mb-2">
-                    In Cloudflare Dashboard → <strong className="text-white">Workers & Pages → Create Application → Connect to Git</strong>, select your repository. Then go to{" "}
-                    <strong className="text-white">Settings → Variables and Secrets</strong> and add your BotFather token:
+                    In Cloudflare Dashboard → <strong className="text-white">Workers & Pages → Create Application → Connect to Git</strong>:
+                    Ensure <strong className="text-white">Build command</strong> is left <strong className="text-emerald-300">empty</strong> (do NOT run <code className="text-rose-300">vite build</code>) and <strong className="text-white">Deploy command</strong> is <code className="text-sky-300">npx wrangler deploy index.js</code>. Because <code className="text-sky-300">wrangler.toml</code> uses <code className="text-sky-300">main = "index.js"</code> with zero <code className="text-rose-300">[assets]</code> bindings, Cloudflare deploys a pure Worker script allowing all <code className="text-sky-300">[vars]</code> and <code className="text-sky-300">BOT_TOKEN</code> variables to be added without any static-assets restriction:
                   </p>
                   <pre className="p-3 bg-slate-900 rounded border border-slate-800 font-mono text-slate-200 overflow-x-auto">
-                    {`npx wrangler secret put BOT_TOKEN`}
+                    {`npx wrangler deploy index.js
+npx wrangler secret put BOT_TOKEN`}
                   </pre>
                 </div>
 

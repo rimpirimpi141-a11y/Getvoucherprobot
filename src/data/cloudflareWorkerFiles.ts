@@ -47,21 +47,17 @@ compatibility_date = "2025-02-01"
 workers_dev = true
 
 # ============================================================================
-# CLOUDFLARE KV NAMESPACE BINDING
-# 1. In Cloudflare Dashboard -> Workers & Pages -> KV, create a namespace
-#    named "BOT_KV" (or run: npx wrangler kv namespace create BOT_KV)
-# 2. Paste your KV Namespace ID below:
+# PURE CLOUDFLARE WORKER CONFIGURATION (NO [assets] BINDING)
+# Do NOT add [assets] or [site] blocks—this ensures Cloudflare deploys a
+# standard Worker script (main = "index.js") so environment variables ([vars])
+# and secrets (BOT_TOKEN) can be added freely without any restrictions.
 # ============================================================================
+
 [[kv_namespaces]]
 binding = "BOT_KV"
 id = "${cfg.kvNamespaceId || "YOUR_KV_NAMESPACE_ID_HERE"}"
 preview_id = "${cfg.kvNamespaceId || "YOUR_PREVIEW_KV_NAMESPACE_ID_HERE"}"
 
-# ============================================================================
-# ENVIRONMENT VARIABLES & SECRETS
-# Set BOT_TOKEN in Cloudflare Dashboard -> Settings -> Variables and Secrets
-# or run: npx wrangler secret put BOT_TOKEN
-# ============================================================================
 [vars]
 BOT_USERNAME = "${cfg.botUsername}"
 ADMIN_ID = "${cfg.adminId}"

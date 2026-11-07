@@ -1,0 +1,24 @@
+name = "getvoucherprobot-worker"
+main = "index.js"
+compatibility_date = "2025-02-01"
+workers_dev = true
+
+# ============================================================================
+# PURE CLOUDFLARE WORKER CONFIGURATION (NO [assets] BINDING)
+# Do NOT add [assets] or [site] blocks—this ensures Cloudflare deploys a
+# standard Worker script (main = "index.js") so environment variables ([vars])
+# and secrets (BOT_TOKEN) can be added freely without any restrictions.
+# ============================================================================
+
+[[kv_namespaces]]
+binding = "BOT_KV"
+id = "YOUR_KV_NAMESPACE_ID_HERE"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID_HERE"
+
+[vars]
+BOT_USERNAME = "@Getvoucherprobot"
+ADMIN_ID = "8838351233"
+SUPPORT_USERNAME = "@Tspherez"
+DEFAULT_FORCE_CHANNEL = "@GetVoucherUpdates"
+UPI_ID = "ankitsmm@fam"
+UPI_MERCHANT_NAME = "GetVoucherPro Official"
