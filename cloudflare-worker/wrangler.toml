@@ -1,0 +1,28 @@
+name = "getvoucherprobot-worker"
+main = "index.js"
+compatibility_date = "2025-02-01"
+workers_dev = true
+
+# ============================================================================
+# CLOUDFLARE KV NAMESPACE BINDING
+# 1. In Cloudflare Dashboard -> Workers & Pages -> KV, create a namespace
+#    named "BOT_KV" (or run: npx wrangler kv namespace create BOT_KV)
+# 2. Replace "YOUR_KV_NAMESPACE_ID_HERE" below with your actual KV Namespace ID
+# ============================================================================
+[[kv_namespaces]]
+binding = "BOT_KV"
+id = "YOUR_KV_NAMESPACE_ID_HERE"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID_HERE"
+
+# ============================================================================
+# ENVIRONMENT VARIABLES & SECRETS
+# For security, set BOT_TOKEN as an encrypted secret in Cloudflare Dashboard
+# or via CLI: npx wrangler secret put BOT_TOKEN
+# ============================================================================
+[vars]
+BOT_USERNAME = "@Getvoucherprobot"
+ADMIN_ID = "8838351233"
+SUPPORT_USERNAME = "@Tspherez"
+DEFAULT_FORCE_CHANNEL = "@GetVoucherUpdates"
+UPI_ID = "ankitsmm@fam"
+UPI_MERCHANT_NAME = "GetVoucherPro Official"

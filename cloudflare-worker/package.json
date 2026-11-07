@@ -1,0 +1,21 @@
+{
+  "name": "getvoucherprobot-worker",
+  "version": "1.0.0",
+  "description": "Production Telegram Voucher Bot (@Getvoucherprobot) built with grammY on Cloudflare Workers & Cloudflare KV",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev index.js",
+    "deploy": "wrangler deploy index.js",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "grammy": "^1.35.0"
+  },
+  "devDependencies": {
+    "wrangler": "^3.109.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

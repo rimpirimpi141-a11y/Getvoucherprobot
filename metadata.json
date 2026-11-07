@@ -1,0 +1,6 @@
+{
+  "name": "GetVoucherPro Bot & Cloudflare KV Studio",
+  "description": "Production-ready grammY Telegram Bot codebase for Cloudflare Workers & KV (@Getvoucherprobot) with live dual-client Telegram simulator, manual payment screenshot verification, and KV storage inspector.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
